@@ -1,10 +1,19 @@
 <template>
     <div class='toolbar-card'>
-        <div class='btn'>
-            <div class='btn-container'>
-                Home
-            </div>
-        </div>
+        <button class='btn'>
+           Home
+        </button>
+        <input class='searchBar' placeholder="Search">
+        <button class='btn'>
+            Search
+        </button>
+        <button class='btn' id='leftBtn'>
+                Cart
+        </button>
+        
+        <button class='btn' id='leftBtn'>
+            Sign in
+        </button>
     </div>
 </template>
 <script>
@@ -13,19 +22,36 @@ export default {
 }
 </script>
 <style>
+
+    .input{
+        height: 10px;
+    }
+
+    .button{
+        border: none;
+    }
+
     .toolbar-card{
+        margin: 0;
         height: 50px;
         width: auto;
-        border: 3px solid rgba(255,128,0,0.5);
+        border: 4px solid rgb(44,44,84);
+        background-color: rgba(44,44,84);
+    }
+    .searchBar{
+        margin: 2px;
     }
     .btn{
-        background-color: rgba(255,128,0,0.3);
+        background-color: rgb(115, 164, 216);
         font-family: Arial, Helvetica, sans-serif;
         height: 50px;
+        outline: none;
+        border: none;
         text-align: center;
         width: 75px;
-        border: 1px solid rgba(255,128,0,0.5);
         transition: all 0.3s ease;
+        margin: 0 1px;
+        border-radius: 4px;
     }
 
     .btn:hover{
@@ -37,5 +63,31 @@ export default {
 
     .btn-container{
         padding: 12.5px;
+    }
+
+    #leftBtn{
+        left: 1017px;
+        position: relative;
+    }
+
+    @media screen and (max-width: 700px) {
+        .toolbar-card{
+            width: 100%;
+            display: block;
+            margin-right: 10px;
+        }
+
+        .btn{
+            text-size-adjust: 80%;
+            width: 15%;
+        }
+
+        #leftBtn{
+            left: 0%;
+        }
+
+        input{
+            width:30%;
+        }
     }
 </style>
