@@ -1,7 +1,8 @@
 <template>
     <div class='toolbar-card'>
-        <button class='btn'>
-           Home
+        
+        <button @click="$router.push('/')" class='btn' type='click'>
+            Home
         </button>
         <input class='searchBar' placeholder="Search">
         <button class='btn'>
@@ -11,7 +12,8 @@
                 Cart
         </button>
         
-        <button class='btn' id='leftBtn'>
+        <!--Shorthand for router-link-->
+        <button @click="$router.push('login')" class='btn' id='leftBtn'> 
             Sign in
         </button>
     </div>
@@ -22,7 +24,6 @@ export default {
 }
 </script>
 <style>
-
     .input{
         height: 10px;
     }
@@ -42,6 +43,13 @@ export default {
     }
     .searchBar{
         margin: 2px;
+    }
+    .links:link{
+        color:black;
+        text-decoration: none;
+    }
+    .links:visited{
+        color:black;
     }
     .btn{
         background-color: rgb(115, 164, 216);
