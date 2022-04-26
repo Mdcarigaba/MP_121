@@ -2,7 +2,7 @@
   <!--Sample front end home page-->
   <!--This now has mobile viewing support-->
 
-  <div>
+  <div style="padding: 0;">
   <tool-bar/>
   <div style='margin-left: 10px'>
     <br>
@@ -57,6 +57,7 @@ export default {
   }
 
   .row{
+    margin-top: 0;
     margin: 0 -5px;
   }
 
@@ -72,6 +73,10 @@ export default {
       width: 42%;
       display: block;
       margin-bottom: 10px;
+    }
+
+    .row{
+      margin: 0 -10px;
     }
   }
 </style>

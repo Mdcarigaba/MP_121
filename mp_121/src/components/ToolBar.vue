@@ -32,7 +32,9 @@ export default {
     }
 
     .toolbar-card{
-        margin: 0;
+        top: -1px;
+        position: sticky;
+        margin-top: -10px;
         height: 50px;
         width: auto;
         border: 4px solid rgb(44,44,84);
@@ -72,9 +74,11 @@ export default {
 
     @media screen and (max-width: 700px) {
         .toolbar-card{
+            top: 0;
+            position: -webkit-sticky;
+            position: sticky;
             width: 100%;
             display: block;
-            margin-right: 10px;
         }
 
         .btn{
