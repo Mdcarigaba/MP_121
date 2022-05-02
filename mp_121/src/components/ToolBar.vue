@@ -8,7 +8,7 @@
         <button class='btn'>
             Search
         </button>
-        <button class='btn' id='leftBtn'>
+        <button class='btn' id='leftBtn' @click="showShopCart">
                 Cart
         </button>
         
@@ -20,7 +20,12 @@
 </template>
 <script>
 export default {
-    name: 'ToolBar'
+    name: 'ToolBar',
+    methods:{
+        showShopCart(){
+            this.$emit('showShopCart')
+        }
+    }
 }
 </script>
 <style>
@@ -36,6 +41,7 @@ export default {
         top: -1px;
         position: sticky;
         margin-top: -10px;
+        z-index: 99999;
         height: 50px;
         width: auto;
         border: 4px solid rgb(44,44,84);

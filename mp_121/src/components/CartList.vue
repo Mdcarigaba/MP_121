@@ -1,34 +1,31 @@
 <template>
-  <div class='card' id='product-card'>
-      <img class = 'card-image' :src="item.imgLink">
-      <h4 id='product-name'>{{item.name}}</h4>
-      <p class='truncate' id='product-desc'>{{item.desc}}</p>
-      <p id='product-price'>P{{item.price}}</p>
-      <button class='cardbtn addcart' @click="addToCart">
-          Add to Cart
-      </button>
+  <div class='cartCard'>
+      <div><h4 id="cart-header"> Your Cart </h4></div>
+      <ul class="cart-ul">
+          <li v-for="item in cartList" :key='item' style="font-family: 'Corbel';">{{item.name}}&emsp;    x {{item.qty}}     {{item.price}}</li>
+      </ul>
+      <button class='cartCardbtn checkout' @click="emptyCart">Empty Cart</button>
+      <button class='cartCardbtn checkout'>Checkout</button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ProductCard',
-  props: ['item'],
+  name: 'CartList',
+  props: ['cartList'],
   methods:{
-      addToCart(){
-          this.$emit('addToCart',this.item)
-          console.log("done!")
+      emptyCart(){
+          this.$emit('emptyCart')
       }
   }
 }
 </script>
 
 <style>
-    button{
-        outline: none;
-    }
 
-    .card{
+    .cartCard{
+        position: absolute;
+        right: 35px;
         background-color: white;
         margin-top: 10px;
         margin-left: 10px;
@@ -38,25 +35,24 @@ export default {
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     }
 
-    #product-card:hover{
-        box-shadow: 0 12px 24px 0 rgba(0,0,0,0.5);
+    .cart-ul{
+        margin-left: 0;
     }
 
-    .card-image{
-        height: 200px;
-        width: auto;
+    #product-cartCard:hover{
+        box-shadow: 0 12px 24px 0 rgba(0,0,0,0.5);
     }
 
     /*to hide long strings as ellipsis*/
     .truncate{
+        text-align: left;
         width: 200px;
         height: 20px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        font-family: 'Corbel';
+        left: 0px;
     }
 
-    .cardbtn{
+    .cartCardbtn{
          width: 200px;
          border: 1px solid black;
          cursor: pointer;
@@ -65,7 +61,7 @@ export default {
          display: inline-block;
     }
 
-    .addcart{
+    .checkout{
         background: #000;
         color: #fff;
         line-height: 42px;
@@ -73,7 +69,7 @@ export default {
         border: none;
     }
 
-    .addcart:hover {
+    .checkout:hover {
         background: white;
         color: #000;
         box-shadow:
@@ -82,8 +78,8 @@ export default {
         7px 7px 20px 0px #0002,
         4px 4px 5px 0px #0001;
     }
-    .addcart:before,
-    .addcart:after{
+    .checkout:before,
+    .checkout:after{
         content:'';
         position:absolute;
         top:0;
@@ -93,29 +89,22 @@ export default {
         background: #000;
         transition:400ms ease all;
     }
-    .addcart:after{
+    .checkout:after{
         right:inherit;
         top:inherit;
         left:0;
         bottom:0;
     }
-    .addcart:hover:before,
-    .addcart:hover:after{
+    .checkout:hover:before,
+    .checkout:hover:after{
         width:100%;
         transition:800ms ease all;
     }
 
-    #product-name{
+    #cart-header{
+        text-align: center;
         margin: 3px;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    }
-
-    #product-desc{
-        margin-top: 2px;
-        margin-bottom: 5px;
-        margin-left: 3px;
-        margin-right: 3px;
-        font-family: 'Corbel';
     }
 
     #product-price{
@@ -123,25 +112,14 @@ export default {
     }
 
     @media screen and (max-width: 600px){
-    .card{
+    .cartCard{
         width: 85%;
         display: block;
         margin-left: 10%;
     }
-    
-    .card-image{
-        height: auto;
-        width: 100%;
-    }
-    .cardbtn{
+    .cartCardbtn{
         width: 100%;
         height: auto;
-    }
-    .truncate{
-        width: 85%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
   }
 </style>
