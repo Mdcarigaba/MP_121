@@ -11,6 +11,10 @@
         <button class='btn' id='leftBtn' @click="showShopCart">
                 Cart
         </button>
+
+        <button @click="$router.push('ProfilePage')" class ='btn' id = 'leftBtn'>
+            Profile
+        </button>
         
         <!--Shorthand for router-link-->
         <button @click="$router.push('login')" class='btn' id='leftBtn'> 
@@ -84,6 +88,9 @@ export default {
     #leftBtn{
         left: 1017px;
         position: relative;
+        -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
     }
 
     @media screen and (max-width: 700px) {
@@ -93,6 +100,7 @@ export default {
             position: sticky;
             width: 100%;
             display: block;
+
         }
 
         .btn{
