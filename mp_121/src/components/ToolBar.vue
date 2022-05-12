@@ -86,7 +86,7 @@ export default {
     }
 
     #leftBtn{
-        left: 1017px;
+        left: 900px;
         position: relative;
         -webkit-flex: 1;
             -ms-flex: 1;
