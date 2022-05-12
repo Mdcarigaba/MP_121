@@ -12,7 +12,7 @@
                 Cart
         </button>
 
-        <button @click="$router.push('ProfilePage')" class ='btn' id = 'leftBtn'>
+        <button @click="$router.push('Seller')" class ='btn' id ='leftBtn'>
             Profile
         </button>
         
