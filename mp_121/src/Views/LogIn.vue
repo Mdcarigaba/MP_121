@@ -5,29 +5,30 @@
             <div class='loginColumns'>
                 <div class='loginCard cards'>
                     <h3>Login</h3>
-                    <input id = 'field' placeholder="Username or Email">
-                    <input id = 'field' placeholder="Password" type='password'>
+                    <input id = 'field' v-model="form['usercred']" placeholder="Username or Email">
+                    <input id = 'field' v-model="form['pass']" placeholder="Password" type='password' name="loginpass">
                     <br>
-                    <button class='btn' id='loginButtons'> Log In </button>
+                    <button class='btn' id='loginButtons' @click="signed()"> Log In </button>
                 </div>
             </div>
             <div class='loginColumns'>
                 <div class='loginCard' id='signup'>
                     <h3>Signup</h3>
+                    
+                    
+                    <input id="field" v-model="form['email']" placeholder="Email">
+                    <input id="field" v-model="form['username']" placeholder="Username">
+                    <input id="field" v-model="form['password']" placeholder="Password" type='password'>
+                    <br>
                     <div>
-                        <input type='radio' value="seller" id="seller" name="role" @change="onChange($event)">
+                        <input v-model="form['role']" type='radio' value="seller" id="seller" name="role" @change="onChange($event)">
                         <label for="seller">Seller</label>
                     </div>
                     <div>
-                        <input type="radio" value="buyer" id="buyer" name="role" @change="onChange($event)">
+                        <input v-model="form['role']" type="radio" value="buyer" id="buyer" name="role" @change="onChange($event)">
                         <label for="buyer">Buyer</label>
                     </div>
-                    
-                    <input id = 'field' placeholder="Email">
-                    <input id = 'field' placeholder="Username">
-                    <input id = 'field' placeholder="Password" type='password'>
-                    <br>
-                    <button class='btn' id='loginButtons'> Log In </button>
+                    <button class='btn' id='loginButtons' @click="signed()"> Log In </button>
                 </div>
             </div>
         </div>
@@ -37,13 +38,24 @@
 <script>
 import ToolBar from '../components/ToolBar.vue'
 export default{
-  components: { ToolBar },
+  components: { ToolBar 
+  },
     name: 'LogIn',
+     data(){
+        return{
+        form:{}   
+        }
+    },
     methods:{
         onChange(event){
             console.log(event.target.value)
+        },
+
+        signed(){
+            console.info(this.form)
         }
-    }
+    },
+   
 }
 </script>
 <style>
