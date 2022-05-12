@@ -13,10 +13,10 @@
           <button class="cardbtn addcart" v-if="!hidden" @click="hidden = !hidden">Sell new Product</button>
         </div>
         <div class="card" id="report">
-          <h3>Sales Report</h3>
-          <p>Total sales: </p>
+          <h3 id="product-name">Sales Report</h3>
+          <p id="product-desc">Total sales: </p>
           <!--Get data for previous 5 sales-->
-          <p>Recent Sales: </p>
+          <p id="product-desc">Recent Sales: </p>
 
         </div>
     </div>
