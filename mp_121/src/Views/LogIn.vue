@@ -14,6 +14,15 @@
             <div class='loginColumns'>
                 <div class='loginCard' id='signup'>
                     <h3>Signup</h3>
+                    <div>
+                        <input type='radio' value="seller" id="seller" name="role" @change="onChange($event)">
+                        <label for="seller">Seller</label>
+                    </div>
+                    <div>
+                        <input type="radio" value="buyer" id="buyer" name="role" @change="onChange($event)">
+                        <label for="buyer">Buyer</label>
+                    </div>
+                    
                     <input id = 'field' placeholder="Email">
                     <input id = 'field' placeholder="Username">
                     <input id = 'field' placeholder="Password" type='password'>
@@ -29,7 +38,12 @@
 import ToolBar from '../components/ToolBar.vue'
 export default{
   components: { ToolBar },
-    name: 'LogIn'
+    name: 'LogIn',
+    methods:{
+        onChange(event){
+            console.log(event.target.value)
+        }
+    }
 }
 </script>
 <style>
@@ -78,6 +92,7 @@ export default{
 
     #signup{
         margin-left: 100px;
+        height: 100%;
     }
 
     @media screen and (max-width: 700px){
